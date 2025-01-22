@@ -14,7 +14,8 @@
     "proyecto-next-piriz": "file:",
     "proyectoNextPiriz": "file:",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "swiper": "^10.x.x"
   },
   "devDependencies": {
     "postcss": "^8",

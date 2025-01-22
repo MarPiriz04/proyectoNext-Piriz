@@ -1,71 +1,85 @@
-import Navbar from "./components/layouts/navbar/navbar";
-import Footer from "./components/layouts/footer/footer";
+"use client";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-export const metadata = {
-  title: "Farmacia Veracierto | Inicio",
-  description: "Ecommerce para productos farmacéuticos y de salud",
-  keywords:
-    "Farmacia, Veracierto, salud, medicamentos, ecommerce, farmacia online, productos farmacéuticos",
-  openGraph: {
-    title: "Farmacia Veracierto | Inicio",
-    description: "Ecommerce para productos farmacéuticos y de salud",
-    url: "https://farmacia.veracierto.com",
-    siteName: "Farmacia Veracierto",
-    images: [
-      {
-        url: "https://example.com/images/farmacia-veracierto.jpg",
-        alt: "Farmacia Veracierto",
-        title: "Farmacia Veracierto",
-        width: 1200,
-        height: 630,
-      },
-    ],
-  },
-};
-
-// Metadatos dinámicos (cuando uses Firebase en el futuro)
-/*
-export async function generateMetadata({ params, searchParams }, parent) {
-  const { id } = params;
-  const product = await fetch(`https://fakestoreapi.com/products/${id}`).then((res) => res.json());
-  const parentMetadata = await parent;
-  return {
-    title: `Farmacia Veracierto | ${product.title}`,
-    description: product.description,
-    openGraph: {
-      title: `Farmacia Veracierto | ${product.title}`,
-      description: product.description,
-      url: `https://farmacia.veracierto.com/product/${id}`,
-      siteName: "Farmacia Veracierto",
-      images: [
-        {
-          url: product.image,
-          alt: product.title,
-          title: product.title,
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-    ...parentMetadata,
-  };
-}
-*/
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 
 export default function Home() {
+  const ofertas = [
+    {
+      id: 1,
+      image: "/images/inmunel.jpg",
+      title: "50% de descuento en productos de inmunidad",
+    },
+    {
+      id: 2,
+      image: "/images/dirox.jpg",
+      title: "¡Suplementos al 30% menos!",
+    },
+    {
+      id: 3,
+      image: "/images/dinamil.jpg",
+      title: "2x1 en multivitaminicos",
+    },
+  ];
+
   return (
-    <>
-      <Navbar />
-      <main style={{ padding: "2rem", textAlign: "center" }}>
-        <h1>Bienvenidos a Farmacia Veracierto</h1>
-        <p>
-          Encuentra todos los productos de salud y medicamentos que necesitas. 
-          Nuestra prioridad es tu bienestar.
-        </p>
-      </main>
-      <Footer />
-    </>
+    <main style={{ padding: "2rem", textAlign: "center" }}>
+      <h1>Bienvenidos a Farmacia Veracierto</h1>
+      <p>Encuentra todos los productos de salud y medicamentos que necesitas.</p>
+
+      <section style={{ marginTop: "2rem" }}>
+        <h2 style={{ marginBottom: "1rem" }}>Ofertas Especiales</h2>
+        <Swiper
+          spaceBetween={0} // Sin espacio entre diapositivas
+          slidesPerView={1} // Una diapositiva visible a la vez
+          loop={true} // Desplazamiento infinito
+          autoplay={{ delay: 5000 }} // Desplazamiento automático cada 5 segundos
+          navigation={true} // Flechas de navegación
+          pagination={{ clickable: true }} // Puntos interactivos
+          modules={[Navigation, Pagination]}
+        >
+          {ofertas.map((oferta) => (
+            <SwiperSlide key={oferta.id}>
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "400px", // Altura del banner
+                  overflow: "hidden",
+                  borderRadius: "10px", // Opcional: Bordes redondeados
+                }}
+              >
+                <img
+                  src={oferta.image}
+                  alt={oferta.title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover", // Asegura que la imagen ocupe el contenedor
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "10%",
+                    left: "5%",
+                    color: "#fff",
+                    background: "rgba(0, 0, 0, 0.5)", // Fondo semi-transparente
+                    padding: "10px 20px",
+                    borderRadius: "5px",
+                  }}
+                >
+                  <h3 style={{ margin: 0, fontSize: "1.5rem" }}>{oferta.title}</h3>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+    </main>
   );
 }
-

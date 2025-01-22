@@ -2,9 +2,9 @@ import Image from "next/image";
 import Menu from "./menu";
 
 export const metadata = {
-  title: "Ecommerce - Navbar",
-  description: "Navegación principal de un ecommerce moderno.",
-  keywords: "ecommerce, tienda, moda, ropa, compras online, navegación, logo",
+  title: "Ecommerce Logo",
+  description: "Ecommerce para empresa de farmacéuticos",
+  keywords: "Ecommerce, medicación, dolores, calmar, tienda, online, shopping, cosméticos, Soluciones CRM Personalizadas",
 };
 
 const Navbar = () => {
@@ -12,18 +12,16 @@ const Navbar = () => {
     <header className="bg-white shadow-md">
       <nav className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="/" aria-label="Inicio">
-            <Image
-              src="/logoApp.svg"
-              alt="Logo del Ecommerce"
-              width={100}
-              height={100}
-              className="object-contain"
-            />
-          </a>
-
-          {/* Menu */}
+          {/* Imagen del logo */}
+          <Image
+            src="/images/logo.jpg" // Ruta correcta de la imagen
+            alt="Logo de la Farmacia"
+            width={100}
+            height={100}
+            className="object-contain"
+            priority // Optimización de carga de imagen
+          />
+          {/* Menú */}
           <Menu />
         </div>
       </nav>
@@ -32,5 +30,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

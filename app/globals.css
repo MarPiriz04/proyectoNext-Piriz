@@ -2,6 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+
 :root {
   --primary-color: #0361AE; /* Azul corporativo */
   --secondary-color: #FED000; /* Amarillo */
