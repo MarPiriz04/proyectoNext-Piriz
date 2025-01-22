@@ -8,18 +8,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        primery: "#30bbf2",
-        secondary: "#eb4034",
-        success: "#00c9a7",
-        danger: "#ff0000",
-        warning: "#ffc107",
-        info: "#2196f3",
-        light: "#f8f9fa",
-        dark: "#343a40",
+        primary: "#4CAF50", // Verde principal (color de la farmacia)
+        secondary: "#ffffff", // Blanco
+        background: "#f8f9fa", // Fondo claro
+        success: "#4CAF50", // Verde para éxito
+        danger: "#FF5252", // Rojo para errores o alertas
+        info: "#2196F3", // Azul para información
+        light: "#ffffff", // Blanco adicional
+        dark: "#2E2E2E", // Gris oscuro para textos secundarios
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        pharmacy: {
+          primary: "#4CAF50", // Verde
+          secondary: "#ffffff", // Blanco
+          accent: "#81C784", // Verde claro
+          neutral: "#E8F5E9", // Fondo muy claro
+          "base-100": "#ffffff", // Fondo base (blanco)
+          info: "#64B5F6", // Azul claro
+          success: "#4CAF50", // Verde
+          warning: "#FFC107", // Amarillo
+          error: "#FF5252", // Rojo
+        },
+      },
+    ],
+  },
 };

@@ -1,39 +1,43 @@
-import Navbar from "./componets/layouts/navbar/navbar";
-import Footer from "./componets/layouts/footer/footer";
-//De forma estatica
+import Navbar from "./components/layouts/navbar/navbar";
+import Footer from "./components/layouts/footer/footer";
+
+
 export const metadata = {
-  title: "proyectoNextPiriz | Home",
-  description: "Ecommerce para empresa de ropa Zara",
+  title: "Farmacia Veracierto | Inicio",
+  description: "Ecommerce para productos farmacéuticos y de salud",
   keywords:
-    "Ecommerce, ropa, Zara, moda, tienda, online, shopping, tienda de ropa, Soluciones CRM Personalizadas",
+    "Farmacia, Veracierto, salud, medicamentos, ecommerce, farmacia online, productos farmacéuticos",
   openGraph: {
-    title: "Ecommerce | Home",
-    description: "Ecommerce para empresa de ropa Zara",
-    url: "https://ecommerce.zarra.com",
-    siteName: "Ecommerce",
+    title: "Farmacia Veracierto | Inicio",
+    description: "Ecommerce para productos farmacéuticos y de salud",
+    url: "https://farmacia.veracierto.com",
+    siteName: "Farmacia Veracierto",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cm9wZXxlbnwwfHwwfHx8MA%3D%3D",
+        url: "https://example.com/images/farmacia-veracierto.jpg",
+        alt: "Farmacia Veracierto",
+        title: "Farmacia Veracierto",
+        width: 1200,
+        height: 630,
       },
     ],
   },
 };
 
-//De forma dinámica
-//Cuando avancemos usaremos firebase
+// Metadatos dinámicos (cuando uses Firebase en el futuro)
 /*
-export async function generateMetadata( {params, searchParams }, parent) {
+export async function generateMetadata({ params, searchParams }, parent) {
   const { id } = params;
-  const product = await fetch(`https://fakestoreapi.com/products/${id}`).then((res) => res.json()); //CUANDO AVANCEMOS USAMOS FIREBASE
+  const product = await fetch(`https://fakestoreapi.com/products/${id}`).then((res) => res.json());
   const parentMetadata = await parent;
   return {
-    title: `Ecommerce | ${product.title}`,
+    title: `Farmacia Veracierto | ${product.title}`,
     description: product.description,
     openGraph: {
-      title: `Ecommerce | ${product.title}`,
+      title: `Farmacia Veracierto | ${product.title}`,
       description: product.description,
-      url: `https://ecommerce.zarra.com/product/${id}`,
-      siteName: "Ecommerce",
+      url: `https://farmacia.veracierto.com/product/${id}`,
+      siteName: "Farmacia Veracierto",
       images: [
         {
           url: product.image,
@@ -53,7 +57,15 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <main style={{ padding: "2rem", textAlign: "center" }}>
+        <h1>Bienvenidos a Farmacia Veracierto</h1>
+        <p>
+          Encuentra todos los productos de salud y medicamentos que necesitas. 
+          Nuestra prioridad es tu bienestar.
+        </p>
+      </main>
       <Footer />
     </>
   );
 }
+
